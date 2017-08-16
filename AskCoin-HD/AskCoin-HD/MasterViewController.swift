@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CKMnemonic
 
 class MasterViewController: UITableViewController {
 
@@ -25,6 +26,7 @@ class MasterViewController: UITableViewController {
 		    let controllers = split.viewControllers
 		    detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
 		}
+		testKeys()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +43,29 @@ class MasterViewController: UITableViewController {
 		objects.insert(NSDate(), at: 0)
 		let indexPath = IndexPath(row: 0, section: 0)
 		tableView.insertRows(at: [indexPath], with: .automatic)
+	}
+	
+	// MARK: - Key test
+	func testKeys() {
+		let mnemonic = "弓 帽 次 剂 测 妈 凭 吏 涨 火 搞 装"
+		print(mnemonic)
+		let seed = "7f58dc64def78838e68016fd142e702ce60a9bf118f556ab7781331ab97da91a96f284487fb4200a2a3e90b604f9531b09f4e8f4c9d05f2f6ac1511b8860704d"
+		print(seed)
+		do {
+			let _ = try ASKKeychain(seedString: seed)
+			
+		} catch {
+			print(error)
+		}
+//		do {
+//			let language: CKMnemonicLanguageType = .chinese
+//			let mnemonic = try CKMnemonic.generateMnemonic(strength: 128, language: language)
+//			print(mnemonic)
+//			let seed = try CKMnemonic.deterministicSeedString(from: mnemonic, passphrase: "Test", language: language)
+//			print(seed)
+//		} catch {
+//			print(error)
+//		}
 	}
 
 	// MARK: - Segues
