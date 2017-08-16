@@ -9,12 +9,23 @@
 import UIKit
 import CryptoSwift
 
+let BTCKeychainMainnetPrivateVersion: UInt32 = 0x0488ADE4
+let BTCKeychainMainnetPublicVersion: UInt32 = 0x0488B21E
+
+let BTCKeychainTestnetPrivateVersion: UInt32 = 0x04358394
+let BTCKeychainTestnetPublicVersion: UInt32 = 0x043587CF
+
 class ASKKeychain: NSObject {
 	
 	private var privateKey: Data?
 	private var chainCode: Data?
 	
 	fileprivate var isMasterKey = false
+	
+	var network = ASKNetwork()
+	var depth: UInt8 = 0
+	var hardened = false
+	var index: UInt32 = 0
 	
 	init(seedString: String) throws {
 		
@@ -24,13 +35,66 @@ class ASKKeychain: NSObject {
 			let hmac = try HMAC(key: "Bitcoin seed", variant: .sha512).authenticate(seedBytes)
 			privateKey = Data(hmac[0..<32])
 			chainCode = Data(hmac[32..<64])
-			print(privateKey!.bytes.toHexString())
-			print(chainCode!.bytes.toHexString())
+			print("privateKey = " + privateKey!.bytes.toHexString())
+			print("chainCode = " + chainCode!.bytes.toHexString())
 			isMasterKey = true
 		} catch {
 			print(error)
 			throw error
 		}
-		
 	}
+	
+	lazy var parentFingerprint: UInt32 = {
+		return 0
+	}()
+	
+	
+	
+	lazy var extendedPrivateKey: String = {
+		guard self.privateKey != nil else {
+			return ""
+		}
+		
+		var toReturn = Data()
+		
+		let version = self.network.isMainNet ? BTCKeychainMainnetPrivateVersion : BTCKeychainTestnetPrivateVersion
+		toReturn += self.extendedKeyPrefix(with: version)
+		
+		toReturn += UInt8(0).hexToData()
+		
+		
+		if let prikey = self.privateKey {
+			toReturn += prikey
+		}
+		
+		return toReturn.base58Check()
+	}()
+	
+	func extendedKeyPrefix(with version: UInt32) -> Data {
+		var toReturn = Data()
+		
+		let versionData = version.hexToData()
+		toReturn += versionData
+		
+		let depthData = depth.hexToData()
+		toReturn += depthData
+		
+		let parentFPData = parentFingerprint.hexToData()
+		toReturn += parentFPData
+		
+		let childIndex = hardened ? (0x80000000 | index) : index
+		let childIndexData = childIndex.hexToData()
+		toReturn += childIndexData
+		
+		if let cCode = chainCode {
+			toReturn += cCode
+		}
+		else
+		{
+			print("chain code 异常")
+		}
+		
+		return toReturn
+	}
+	
 }

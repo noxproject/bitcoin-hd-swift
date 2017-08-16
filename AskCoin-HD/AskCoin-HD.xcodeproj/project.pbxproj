@@ -17,6 +17,14 @@
 		CC5F9F481F41526E0063E7BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC5F9F461F41526E0063E7BD /* LaunchScreen.storyboard */; };
 		CC5F9F531F41526E0063E7BD /* AskCoin_HDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5F9F521F41526E0063E7BD /* AskCoin_HDTests.swift */; };
 		CC872C0B1F417E0F003E26D8 /* ASKKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C0A1F417E0F003E26D8 /* ASKKeychain.swift */; };
+		CC872C4E1F442136003E26D8 /* ASKNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C4D1F442135003E26D8 /* ASKNetwork.swift */; };
+		CC872C501F442453003E26D8 /* ASKHDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C4F1F442453003E26D8 /* ASKHDUtils.swift */; };
+		CC872C5F1F446EE0003E26D8 /* MG Basic Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C5A1F446EE0003E26D8 /* MG Basic Math.swift */; };
+		CC872C601F446EE0003E26D8 /* MG Benchmark Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C5B1F446EE0003E26D8 /* MG Benchmark Tools.swift */; };
+		CC872C611F446EE0003E26D8 /* SMP Bignum Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C5C1F446EE0003E26D8 /* SMP Bignum Extensions.swift */; };
+		CC872C621F446EE0003E26D8 /* SMP Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C5D1F446EE0003E26D8 /* SMP Core.swift */; };
+		CC872C631F446EE0003E26D8 /* SMP String Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C5E1F446EE0003E26D8 /* SMP String Module.swift */; };
+		CC872C651F4486A3003E26D8 /* ASKBase58.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C641F4486A3003E26D8 /* ASKBase58.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,14 @@
 		CC5F9F521F41526E0063E7BD /* AskCoin_HDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskCoin_HDTests.swift; sourceTree = "<group>"; };
 		CC5F9F541F41526E0063E7BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC872C0A1F417E0F003E26D8 /* ASKKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKKeychain.swift; sourceTree = "<group>"; };
+		CC872C4D1F442135003E26D8 /* ASKNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKNetwork.swift; sourceTree = "<group>"; };
+		CC872C4F1F442453003E26D8 /* ASKHDUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKHDUtils.swift; sourceTree = "<group>"; };
+		CC872C5A1F446EE0003E26D8 /* MG Basic Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MG Basic Math.swift"; sourceTree = "<group>"; };
+		CC872C5B1F446EE0003E26D8 /* MG Benchmark Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MG Benchmark Tools.swift"; sourceTree = "<group>"; };
+		CC872C5C1F446EE0003E26D8 /* SMP Bignum Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SMP Bignum Extensions.swift"; sourceTree = "<group>"; };
+		CC872C5D1F446EE0003E26D8 /* SMP Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SMP Core.swift"; sourceTree = "<group>"; };
+		CC872C5E1F446EE0003E26D8 /* SMP String Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SMP String Module.swift"; sourceTree = "<group>"; };
+		CC872C641F4486A3003E26D8 /* ASKBase58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKBase58.swift; sourceTree = "<group>"; };
 		EB4285D91BF5A7977763C11D /* Pods-AskCoin-HD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AskCoin-HD.release.xcconfig"; path = "Pods/Target Support Files/Pods-AskCoin-HD/Pods-AskCoin-HD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,9 +153,25 @@
 		CC872C091F415CF3003E26D8 /* AskCoin-HD */ = {
 			isa = PBXGroup;
 			children = (
+				CC872C591F446EE0003E26D8 /* SwiftBigInteger */,
 				CC872C0A1F417E0F003E26D8 /* ASKKeychain.swift */,
+				CC872C4D1F442135003E26D8 /* ASKNetwork.swift */,
+				CC872C4F1F442453003E26D8 /* ASKHDUtils.swift */,
+				CC872C641F4486A3003E26D8 /* ASKBase58.swift */,
 			);
 			path = "AskCoin-HD";
+			sourceTree = "<group>";
+		};
+		CC872C591F446EE0003E26D8 /* SwiftBigInteger */ = {
+			isa = PBXGroup;
+			children = (
+				CC872C5A1F446EE0003E26D8 /* MG Basic Math.swift */,
+				CC872C5B1F446EE0003E26D8 /* MG Benchmark Tools.swift */,
+				CC872C5C1F446EE0003E26D8 /* SMP Bignum Extensions.swift */,
+				CC872C5D1F446EE0003E26D8 /* SMP Core.swift */,
+				CC872C5E1F446EE0003E26D8 /* SMP String Module.swift */,
+			);
+			path = SwiftBigInteger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,9 +391,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC5F9F401F41526E0063E7BD /* DetailViewController.swift in Sources */,
+				CC872C651F4486A3003E26D8 /* ASKBase58.swift in Sources */,
+				CC872C5F1F446EE0003E26D8 /* MG Basic Math.swift in Sources */,
+				CC872C4E1F442136003E26D8 /* ASKNetwork.swift in Sources */,
+				CC872C601F446EE0003E26D8 /* MG Benchmark Tools.swift in Sources */,
+				CC872C621F446EE0003E26D8 /* SMP Core.swift in Sources */,
 				CC5F9F3E1F41526E0063E7BD /* MasterViewController.swift in Sources */,
+				CC872C501F442453003E26D8 /* ASKHDUtils.swift in Sources */,
 				CC5F9F3C1F41526E0063E7BD /* AppDelegate.swift in Sources */,
 				CC872C0B1F417E0F003E26D8 /* ASKKeychain.swift in Sources */,
+				CC872C631F446EE0003E26D8 /* SMP String Module.swift in Sources */,
+				CC872C611F446EE0003E26D8 /* SMP Bignum Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
