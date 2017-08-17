@@ -9,6 +9,10 @@
 import Foundation
 
 struct ASKBase58 {
+	
+	static let dec58 = BInt(58)
+	static let dec0 = BInt(0)
+	
 	static func encode(data: Data) -> String {
 		let strs = Array("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz".characters)
 		
@@ -17,9 +21,6 @@ struct ASKBase58 {
 		
 		var dec = BInt(hex: tmp.toHexString())
 		
-		let dec58 = BInt(58)
-		let dec0 = BInt(0)
-		
 		var results = Array<String>()
 		while dec > dec0 {
 			
@@ -27,11 +28,24 @@ struct ASKBase58 {
 			dec = dec / dec58
 			
 			if let index = rem.toInt() {
-				results.append(String(strs[index]))
+				results.insert(String(strs[index]), at: 0)
 			}
 			
 		}
-		let result = results.reversed().joined()
+		
+		// replace leading char '0' with '1'
+		for char in results {
+			if char == "0" {
+				let index = results.index(of: char)!
+				results.replaceSubrange(index...index + 1, with: ["1"])
+			}
+			else
+			{
+				break
+			}
+		}
+		
+		let result = results.joined()
 		
 		return result
 	}
