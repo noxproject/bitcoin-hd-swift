@@ -18,6 +18,7 @@ let BTCKeychainTestnetPublicVersion: UInt32 = 0x043587CF
 class ASKKeychain: NSObject {
 	
 	private var privateKey: Data?
+//	private var publicKey: Data?
 	private var chainCode: Data?
 	
 	fileprivate var isMasterKey = false
@@ -48,11 +49,21 @@ class ASKKeychain: NSObject {
 		return 0
 	}()
 	
-	
-	
-	lazy var extendedPrivateKey: String = {
+	private lazy var publicKey: Data? = {
 		guard self.privateKey != nil else {
-			return ""
+			return nil
+		}
+		return ASKKey.generatePublicKey(with: self.privateKey!)
+	}()
+	
+	// MARK: - Extended private key
+	lazy var extendedPrivateKey: String = {
+		self.extendedPrivateKeyData.base58Check()
+	}()
+	
+	lazy var extendedPrivateKeyData: Data = {
+		guard self.privateKey != nil else {
+			return Data()
 		}
 		
 		var toReturn = Data()
@@ -62,12 +73,33 @@ class ASKKeychain: NSObject {
 		
 		toReturn += UInt8(0).hexToData()
 		
-		
 		if let prikey = self.privateKey {
 			toReturn += prikey
 		}
 		
-		return toReturn.base58Check()
+		return toReturn
+	}()
+	
+	// MARK: - Extended public key
+	lazy var extendedPublicKey: String = {
+		self.extendedPublicKeyData.base58Check()
+	}()
+	
+	lazy var extendedPublicKeyData: Data = {
+		guard self.publicKey != nil else {
+			return Data()
+		}
+		
+		var toReturn = Data()
+		
+		let version = self.network.isMainNet ? BTCKeychainMainnetPublicVersion : BTCKeychainTestnetPublicVersion
+		toReturn += self.extendedKeyPrefix(with: version)
+		
+		if let pubkey = self.publicKey {
+			toReturn += pubkey
+		}
+		
+		return toReturn
 	}()
 	
 	func extendedKeyPrefix(with version: UInt32) -> Data {

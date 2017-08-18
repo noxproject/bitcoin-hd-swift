@@ -54,6 +54,7 @@ class MasterViewController: UITableViewController {
 		do {
 			let keychain = try ASKKeychain(seedString: seed)
 			print(keychain.extendedPrivateKey)
+			print(keychain.extendedPublicKey)
 		} catch {
 			print(error)
 		}
