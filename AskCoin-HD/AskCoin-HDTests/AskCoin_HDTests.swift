@@ -41,6 +41,7 @@ class AskCoin_HDTests: XCTestCase {
 			do {
 				let keychain = try ASKKeychain(seedString: seed)
 				XCTAssertEqual(vector.extPrv, keychain.extendedPrivateKey)
+				XCTAssertEqual(vector.extPub, keychain.extendedPublicKey)
 			} catch {
 				XCTFail()
 				print(error)
