@@ -26,6 +26,9 @@
 		CC872C631F446EE0003E26D8 /* SMP String Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C5E1F446EE0003E26D8 /* SMP String Module.swift */; };
 		CC872C651F4486A3003E26D8 /* ASKBase58.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C641F4486A3003E26D8 /* ASKBase58.swift */; };
 		CC872E021F45AF07003E26D8 /* ASKKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872E011F45AF07003E26D8 /* ASKKey.swift */; };
+		CCE3C2701F4AE4AF009ECCEC /* RIPEMD+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C26D1F4AE4AF009ECCEC /* RIPEMD+Block.swift */; };
+		CCE3C2711F4AE4AF009ECCEC /* RIPEMD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C26E1F4AE4AF009ECCEC /* RIPEMD.swift */; };
+		CCE3C2721F4AE4AF009ECCEC /* UInt32+CircularShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C26F1F4AE4AF009ECCEC /* UInt32+CircularShift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		CC872C5E1F446EE0003E26D8 /* SMP String Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SMP String Module.swift"; sourceTree = "<group>"; };
 		CC872C641F4486A3003E26D8 /* ASKBase58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKBase58.swift; sourceTree = "<group>"; };
 		CC872E011F45AF07003E26D8 /* ASKKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKKey.swift; sourceTree = "<group>"; };
+		CCE3C26D1F4AE4AF009ECCEC /* RIPEMD+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RIPEMD+Block.swift"; sourceTree = "<group>"; };
+		CCE3C26E1F4AE4AF009ECCEC /* RIPEMD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIPEMD.swift; sourceTree = "<group>"; };
+		CCE3C26F1F4AE4AF009ECCEC /* UInt32+CircularShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt32+CircularShift.swift"; sourceTree = "<group>"; };
 		EB4285D91BF5A7977763C11D /* Pods-AskCoin-HD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AskCoin-HD.release.xcconfig"; path = "Pods/Target Support Files/Pods-AskCoin-HD/Pods-AskCoin-HD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +174,7 @@
 		CC872C091F415CF3003E26D8 /* AskCoin-HD */ = {
 			isa = PBXGroup;
 			children = (
+				CCE3C26C1F4AE4AF009ECCEC /* RIPEMD */,
 				CC872C591F446EE0003E26D8 /* SwiftBigInteger */,
 				CC872C0A1F417E0F003E26D8 /* ASKKeychain.swift */,
 				CC872E011F45AF07003E26D8 /* ASKKey.swift */,
@@ -188,6 +195,16 @@
 				CC872C5E1F446EE0003E26D8 /* SMP String Module.swift */,
 			);
 			path = SwiftBigInteger;
+			sourceTree = "<group>";
+		};
+		CCE3C26C1F4AE4AF009ECCEC /* RIPEMD */ = {
+			isa = PBXGroup;
+			children = (
+				CCE3C26D1F4AE4AF009ECCEC /* RIPEMD+Block.swift */,
+				CCE3C26E1F4AE4AF009ECCEC /* RIPEMD.swift */,
+				CCE3C26F1F4AE4AF009ECCEC /* UInt32+CircularShift.swift */,
+			);
+			path = RIPEMD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,10 +435,13 @@
 				CC872C621F446EE0003E26D8 /* SMP Core.swift in Sources */,
 				CC5F9F3E1F41526E0063E7BD /* MasterViewController.swift in Sources */,
 				CC872C501F442453003E26D8 /* ASKHDUtils.swift in Sources */,
+				CCE3C2721F4AE4AF009ECCEC /* UInt32+CircularShift.swift in Sources */,
 				CC5F9F3C1F41526E0063E7BD /* AppDelegate.swift in Sources */,
 				CC872C0B1F417E0F003E26D8 /* ASKKeychain.swift in Sources */,
 				CC872E021F45AF07003E26D8 /* ASKKey.swift in Sources */,
 				CC872C631F446EE0003E26D8 /* SMP String Module.swift in Sources */,
+				CCE3C2711F4AE4AF009ECCEC /* RIPEMD.swift in Sources */,
+				CCE3C2701F4AE4AF009ECCEC /* RIPEMD+Block.swift in Sources */,
 				CC872C611F446EE0003E26D8 /* SMP Bignum Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

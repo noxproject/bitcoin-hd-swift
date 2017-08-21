@@ -17,6 +17,13 @@ let BTCKeychainTestnetPublicVersion: UInt32 = 0x043587CF
 
 class ASKKeychain: NSObject {
 	
+	enum KeyDerivationError: Error {
+		case indexInvalid
+		case privateKeyNil
+		case publicKeyNil
+		case chainCodeNil
+	}
+	
 	private var privateKey: Data?
 //	private var publicKey: Data?
 	private var chainCode: Data?
@@ -28,16 +35,16 @@ class ASKKeychain: NSObject {
 	var hardened = false
 	var index: UInt32 = 0
 	
-	init(seedString: String) throws {
+	override init() {
 		
+	}
+	
+	convenience init(seedString: String) throws {
 		let seed = seedString.ck_mnemonicData()
 		let seedBytes = seed.bytes
 		do {
 			let hmac = try HMAC(key: "Bitcoin seed", variant: .sha512).authenticate(seedBytes)
-			privateKey = Data(hmac[0..<32])
-			chainCode = Data(hmac[32..<64])
-			print("privateKey = " + privateKey!.bytes.toHexString())
-			print("chainCode = " + chainCode!.bytes.toHexString())
+			self.init(hmac: hmac)
 			isMasterKey = true
 		} catch {
 			print(error)
@@ -45,7 +52,26 @@ class ASKKeychain: NSObject {
 		}
 	}
 	
-	lazy var parentFingerprint: UInt32 = {
+	private init(hmac: Array<UInt8>) {
+		privateKey = Data(hmac[0..<32])
+		chainCode = Data(hmac[32..<64])
+		print("privateKey = " + privateKey!.bytes.toHexString())
+		print("chainCode = " + chainCode!.bytes.toHexString())
+	}
+	
+	lazy var identifier: Data? = {
+		if let pubKey = self.publicKey {
+			return pubKey.BTCHash160()
+		}
+		return nil
+	}()
+	
+	var parentFingerprint: UInt32 = 0
+	
+	lazy var fingerprint: UInt32 = {
+		if let id = self.identifier {
+			return UInt32(bytes: id.bytes[0..<4])
+		}
 		return 0
 	}()
 	
@@ -127,6 +153,61 @@ class ASKKeychain: NSObject {
 		}
 		
 		return toReturn
+	}
+	
+	func derivedKeychain(at index: UInt32, hardened: Bool = true) throws -> ASKKeychain {
+		
+		let edge: UInt32 = 0x80000000
+		
+		guard (edge & UInt32(index)) == 0 else {
+			throw KeyDerivationError.indexInvalid
+		}
+		
+		guard let prvKey = privateKey else {
+			throw KeyDerivationError.privateKeyNil
+		}
+		
+		guard let pubKey = publicKey else {
+			throw KeyDerivationError.publicKeyNil
+		}
+		
+		guard let chCode = chainCode else {
+			throw KeyDerivationError.chainCodeNil
+		}
+		
+		var data = Data()
+		
+		if hardened {
+			let padding: UInt8 = 0
+			data += padding.hexToData()
+			data += prvKey
+		}
+		else
+		{
+			data += pubKey
+		}
+		
+		let indexBE = hardened ? (edge + index) : index
+		data += indexBE.hexToData()
+		
+		let digestArray = try HMAC(key: chCode.bytes, variant: .sha512).authenticate(data.bytes)
+		
+		let factor = BInt(data: Data(digestArray[0..<32]))
+		let curveOrder = BInt(hex: "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141")
+		
+		let derivedKeychain = ASKKeychain(hmac: digestArray)
+		
+		let pkNum = BInt(data: Data(prvKey))
+		
+		let pkData = ((pkNum + factor) % curveOrder).data
+		
+		derivedKeychain.privateKey = pkData
+		derivedKeychain.depth = depth + 1
+		derivedKeychain.parentFingerprint = fingerprint
+		derivedKeychain.index = index
+		derivedKeychain.hardened = hardened
+		
+		return derivedKeychain
 	}
 	
 }
