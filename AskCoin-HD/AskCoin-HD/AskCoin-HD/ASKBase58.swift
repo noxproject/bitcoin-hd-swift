@@ -49,10 +49,4 @@ struct ASKBase58 {
 		
 		return result
 	}
-	
-	static func decode(hexString: String) -> Data {
-		let chars = hexString.characters
-		
-		return Data()
-	}
 }
