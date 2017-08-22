@@ -29,6 +29,8 @@
 		CCE3C2701F4AE4AF009ECCEC /* RIPEMD+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C26D1F4AE4AF009ECCEC /* RIPEMD+Block.swift */; };
 		CCE3C2711F4AE4AF009ECCEC /* RIPEMD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C26E1F4AE4AF009ECCEC /* RIPEMD.swift */; };
 		CCE3C2721F4AE4AF009ECCEC /* UInt32+CircularShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C26F1F4AE4AF009ECCEC /* UInt32+CircularShift.swift */; };
+		CCE3C27F1F4C10C7009ECCEC /* TestVectors.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCE3C27E1F4C10C7009ECCEC /* TestVectors.plist */; };
+		CCE3C2801F4C1C72009ECCEC /* TestVectors.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCE3C27E1F4C10C7009ECCEC /* TestVectors.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,7 @@
 		CCE3C26D1F4AE4AF009ECCEC /* RIPEMD+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RIPEMD+Block.swift"; sourceTree = "<group>"; };
 		CCE3C26E1F4AE4AF009ECCEC /* RIPEMD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIPEMD.swift; sourceTree = "<group>"; };
 		CCE3C26F1F4AE4AF009ECCEC /* UInt32+CircularShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt32+CircularShift.swift"; sourceTree = "<group>"; };
+		CCE3C27E1F4C10C7009ECCEC /* TestVectors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestVectors.plist; sourceTree = "<group>"; };
 		EB4285D91BF5A7977763C11D /* Pods-AskCoin-HD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AskCoin-HD.release.xcconfig"; path = "Pods/Target Support Files/Pods-AskCoin-HD/Pods-AskCoin-HD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				CC5F9F521F41526E0063E7BD /* AskCoin_HDTests.swift */,
+				CCE3C27E1F4C10C7009ECCEC /* TestVectors.plist */,
 				CC5F9F541F41526E0063E7BD /* Info.plist */,
 			);
 			path = "AskCoin-HDTests";
@@ -302,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC5F9F481F41526E0063E7BD /* LaunchScreen.storyboard in Resources */,
+				CCE3C2801F4C1C72009ECCEC /* TestVectors.plist in Resources */,
 				CC5F9F451F41526E0063E7BD /* Assets.xcassets in Resources */,
 				CC5F9F431F41526E0063E7BD /* Main.storyboard in Resources */,
 			);
@@ -311,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCE3C27F1F4C10C7009ECCEC /* TestVectors.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

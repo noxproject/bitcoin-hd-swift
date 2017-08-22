@@ -56,7 +56,7 @@ class MasterViewController: UITableViewController {
 			print(keychain.extendedPrivateKey)
 			print(keychain.extendedPublicKey)
 			
-			let childKeychain = try keychain.derivedKeychain(at: 0)
+			let childKeychain = try keychain.derivedKeychain(at: "m/0'")
 			print(childKeychain.extendedPrivateKey)
 			print(childKeychain.extendedPublicKey)
 			

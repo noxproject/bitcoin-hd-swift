@@ -19,6 +19,7 @@ class ASKKeychain: NSObject {
 	
 	enum KeyDerivationError: Error {
 		case indexInvalid
+		case pathInvalid
 		case privateKeyNil
 		case publicKeyNil
 		case chainCodeNil
@@ -47,7 +48,6 @@ class ASKKeychain: NSObject {
 			self.init(hmac: hmac)
 			isMasterKey = true
 		} catch {
-			print(error)
 			throw error
 		}
 	}
@@ -55,8 +55,6 @@ class ASKKeychain: NSObject {
 	private init(hmac: Array<UInt8>) {
 		privateKey = Data(hmac[0..<32])
 		chainCode = Data(hmac[32..<64])
-		print("privateKey = " + privateKey!.bytes.toHexString())
-		print("chainCode = " + chainCode!.bytes.toHexString())
 	}
 	
 	lazy var identifier: Data? = {
@@ -149,10 +147,38 @@ class ASKKeychain: NSObject {
 		}
 		else
 		{
-			print("chain code 异常")
+			print(KeyDerivationError.chainCodeNil)
 		}
 		
 		return toReturn
+	}
+	
+	func derivedKeychain(at path: String) throws -> ASKKeychain {
+		
+		if path == "m" || path == "/" || path == "" {
+			return self
+		}
+		
+		var paths = path.components(separatedBy: "/")
+		paths.removeFirst()
+		
+		var kc = self
+		
+		for indexString in paths {
+			var isHardened = false
+			var temp = indexString
+			if indexString.hasSuffix("'") {
+				isHardened = true
+				temp = temp.substring(to: temp.index(temp.endIndex, offsetBy: -1))
+			}
+			if let index = UInt32(temp) {
+				kc = try kc.derivedKeychain(at: index, hardened: isHardened)
+				continue
+			}
+			throw KeyDerivationError.pathInvalid
+		}
+		
+		return kc
 	}
 	
 	func derivedKeychain(at index: UInt32, hardened: Bool = true) throws -> ASKKeychain {
