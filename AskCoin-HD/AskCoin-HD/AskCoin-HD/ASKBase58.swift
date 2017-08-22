@@ -12,9 +12,9 @@ struct ASKBase58 {
 	
 	static let dec58 = BInt(58)
 	static let dec0 = BInt(0)
+	static let alphabet = Array("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz".characters)
 	
 	static func encode(data: Data) -> String {
-		let strs = Array("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz".characters)
 		
 		let checksum = data.BTCHash256()
 		let tmp = data + checksum[0...3]
@@ -28,7 +28,7 @@ struct ASKBase58 {
 			dec = dec / dec58
 			
 			if let index = rem.toInt() {
-				results.insert(String(strs[index]), at: 0)
+				results.insert(String(alphabet[index]), at: 0)
 			}
 			
 		}

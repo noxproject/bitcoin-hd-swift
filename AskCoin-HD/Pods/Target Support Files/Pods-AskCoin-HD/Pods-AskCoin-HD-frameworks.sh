@@ -102,10 +102,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/ASKSecp256k1/ASKSecp256k1.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CKMnemonic/CKMnemonic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/ASKSecp256k1/ASKSecp256k1.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CKMnemonic/CKMnemonic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework"
 fi

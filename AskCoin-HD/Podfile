@@ -1,6 +1,12 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+#公有库
+source 'https://github.com/CocoaPods/Specs.git'
+
+#私有库
+source 'git@git.nsrocker.cn:Cocody/PrivateSpec.git'
+
 target 'AskCoin-HD' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
@@ -8,7 +14,8 @@ target 'AskCoin-HD' do
   # Pods for AskCoin-HD
   pod 'CKMnemonic'
   pod 'CryptoSwift'
-
+  pod 'ASKSecp256k1'
+  
   target 'AskCoin-HDTests' do
     inherit! :search_paths
     # Pods for testing
