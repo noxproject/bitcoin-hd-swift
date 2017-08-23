@@ -15,6 +15,10 @@ let BTCKeychainMainnetPublicVersion: UInt32 = 0x0488B21E
 let BTCKeychainTestnetPrivateVersion: UInt32 = 0x04358394
 let BTCKeychainTestnetPublicVersion: UInt32 = 0x043587CF
 
+let BTCMasterKeychainPath = "m"
+let BTCKeychainHardenedSymbol = "'"
+let BTCKeychainPathSeparator = "/"
+
 class ASKKeychain: NSObject {
 	
 	enum KeyDerivationError: Error {
@@ -23,6 +27,7 @@ class ASKKeychain: NSObject {
 		case privateKeyNil
 		case publicKeyNil
 		case chainCodeNil
+		case notMasterKey
 	}
 	
 	private var privateKey: Data?
@@ -155,19 +160,21 @@ class ASKKeychain: NSObject {
 	
 	func derivedKeychain(at path: String) throws -> ASKKeychain {
 		
-		if path == "m" || path == "/" || path == "" {
+		if path == BTCMasterKeychainPath || path == BTCKeychainPathSeparator || path == "" {
 			return self
 		}
 		
-		var paths = path.components(separatedBy: "/")
-		paths.removeFirst()
+		var paths = path.components(separatedBy: BTCKeychainPathSeparator)
+		if path.hasPrefix(BTCMasterKeychainPath) {
+			paths.removeFirst()
+		}
 		
 		var kc = self
 		
 		for indexString in paths {
 			var isHardened = false
 			var temp = indexString
-			if indexString.hasSuffix("'") {
+			if indexString.hasSuffix(BTCKeychainHardenedSymbol) {
 				isHardened = true
 				temp = temp.substring(to: temp.index(temp.endIndex, offsetBy: -1))
 			}
@@ -237,3 +244,23 @@ class ASKKeychain: NSObject {
 	}
 	
 }
+
+// MARK: - BIP44
+extension ASKKeychain {
+	
+	func checkMasterKey() throws {
+		guard isMasterKey else {
+			throw KeyDerivationError.notMasterKey
+		}
+	}
+	
+	func bitcoinMainnetKeychain() throws -> ASKKeychain {
+		try checkMasterKey()
+		return try derivedKeychain(at: "44'/0'")
+	}
+	func bitcoinTestnetKeychain() throws -> ASKKeychain {
+		try checkMasterKey()
+		return try derivedKeychain(at: "44'/1'")
+	}
+}
+

@@ -10,7 +10,7 @@
 #endif
 #endif
 
-#import "CKScep256k1.h"
+#import "CKSecp256k1.h"
 
 FOUNDATION_EXPORT double ASKSecp256k1VersionNumber;
 FOUNDATION_EXPORT const unsigned char ASKSecp256k1VersionString[];

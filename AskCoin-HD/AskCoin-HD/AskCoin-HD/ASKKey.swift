@@ -9,10 +9,12 @@
 import UIKit
 import ASKSecp256k1
 
+// TODO: - Verify and signature
+
 class ASKKey: NSObject {
 	static func generatePublicKey(with privateKey: Data, compression: Bool = true) -> Data {
 		var data = Data()
-		if let t = CKScep256k1.generatePublicKey(withPrivateKey: privateKey, compression: compression) {
+		if let t = CKSecp256k1.generatePublicKey(withPrivateKey: privateKey, compression: compression) {
 			data.append(t)
 		}
 		return data
