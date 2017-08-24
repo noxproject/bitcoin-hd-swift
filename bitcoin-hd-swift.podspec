@@ -132,7 +132,7 @@ Pod::Spec.new do |s|
 
   # s.requires_arc = true
 
-  s.xcconfig = { "BITCODE" => false }
+  # s.xcconfig = { "ENABLE_BITCODE" => "NO" }
   s.dependency "CKMnemonic"
   s.dependency "CryptoSwift"
   s.dependency "ASKSecp256k1"
