@@ -16,7 +16,7 @@ struct ASKBase58 {
 	
 	static func encode(data: Data) -> String {
 		
-		let checksum = data.BTCHash256()
+		let checksum = data.ask_BTCHash256()
 		let tmp = data + checksum[0...3]
 		
 		var dec = BInt(hex: tmp.toHexString())

@@ -65,7 +65,7 @@ class Keychain: NSObject {
 	
 	lazy var identifier: Data? = {
 		if let pubKey = self.publicKey {
-			return pubKey.BTCHash160()
+			return pubKey.ask_BTCHash160()
 		}
 		return nil
 	}()
@@ -88,7 +88,7 @@ class Keychain: NSObject {
 	
 	// MARK: - Extended private key
 	lazy var extendedPrivateKey: String = {
-		self.extendedPrivateKeyData.base58Check()
+		self.extendedPrivateKeyData.ask_base58Check()
 	}()
 	
 	lazy var extendedPrivateKeyData: Data = {
@@ -101,7 +101,7 @@ class Keychain: NSObject {
 		let version = self.network.isMainNet ? BTCKeychainMainnetPrivateVersion : BTCKeychainTestnetPrivateVersion
 		toReturn += self.extendedKeyPrefix(with: version)
 		
-		toReturn += UInt8(0).hexToData()
+		toReturn += UInt8(0).ask_hexToData()
 		
 		if let prikey = self.privateKey {
 			toReturn += prikey
@@ -112,7 +112,7 @@ class Keychain: NSObject {
 	
 	// MARK: - Extended public key
 	lazy var extendedPublicKey: String = {
-		self.extendedPublicKeyData.base58Check()
+		self.extendedPublicKeyData.ask_base58Check()
 	}()
 	
 	lazy var extendedPublicKeyData: Data = {
@@ -135,17 +135,17 @@ class Keychain: NSObject {
 	func extendedKeyPrefix(with version: UInt32) -> Data {
 		var toReturn = Data()
 		
-		let versionData = version.hexToData()
+		let versionData = version.ask_hexToData()
 		toReturn += versionData
 		
-		let depthData = depth.hexToData()
+		let depthData = depth.ask_hexToData()
 		toReturn += depthData
 		
-		let parentFPData = parentFingerprint.hexToData()
+		let parentFPData = parentFingerprint.ask_hexToData()
 		toReturn += parentFPData
 		
 		let childIndex = hardened ? (0x80000000 | index) : index
-		let childIndexData = childIndex.hexToData()
+		let childIndexData = childIndex.ask_hexToData()
 		toReturn += childIndexData
 		
 		if let cCode = chainCode {
@@ -213,7 +213,7 @@ class Keychain: NSObject {
 		
 		if hardened {
 			let padding: UInt8 = 0
-			data += padding.hexToData()
+			data += padding.ask_hexToData()
 			data += prvKey
 		}
 		else
@@ -222,7 +222,7 @@ class Keychain: NSObject {
 		}
 		
 		let indexBE = hardened ? (edge + index) : index
-		data += indexBE.hexToData()
+		data += indexBE.ask_hexToData()
 		
 		let digestArray = try HMAC(key: chCode.bytes, variant: .sha512).authenticate(data.bytes)
 		
