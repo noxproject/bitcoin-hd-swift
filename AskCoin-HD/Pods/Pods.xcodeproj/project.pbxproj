@@ -147,28 +147,28 @@
 		27493612272870ECF5B7B42267FB5621 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E90464B1532682C6D8FC621570A96C /* NSData+HexString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+HexString.m"; path = "ASKSecp256k1/ASKSecp256k1/CKSecp256k1/NSData+HexString.m"; sourceTree = "<group>"; };
 		2943955D10CC5B73EA940EE1271107B9 /* RandomBytesSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RandomBytesSequence.swift; path = Sources/CryptoSwift/RandomBytesSequence.swift; sourceTree = "<group>"; };
-		31A173A919C243356E28AE39638B50B7 /* Pods_AskCoin_HD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AskCoin_HD.framework; path = "Pods-AskCoin-HD.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		31C516F0066D6BC7595CA0432F697E8A /* Pods-AskCoin-HD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AskCoin-HD.modulemap"; sourceTree = "<group>"; };
+		31A173A919C243356E28AE39638B50B7 /* Pods_AskCoin_HD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AskCoin_HD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31C516F0066D6BC7595CA0432F697E8A /* Pods-AskCoin-HD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AskCoin-HD.modulemap"; sourceTree = "<group>"; };
 		32D54A06FABC9B78FFB3D1B0E2F77FD2 /* MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MD5.swift; path = Sources/CryptoSwift/MD5.swift; sourceTree = "<group>"; };
 		3449ACC1A87005D8498622E081ACB352 /* Checksum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Checksum.swift; path = Sources/CryptoSwift/Checksum.swift; sourceTree = "<group>"; };
 		385CE414BA3E4838C653DC77A5ECFB13 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/CryptoSwift/Operators.swift; sourceTree = "<group>"; };
 		39FA13F6A35F147439D20B9CB549316C /* IntegerConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntegerConvertible.swift; path = Sources/CryptoSwift/IntegerConvertible.swift; sourceTree = "<group>"; };
 		3A928C856994DC5A8124478CC4E2C035 /* Int+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Int+Extension.swift"; path = "Sources/CryptoSwift/Int+Extension.swift"; sourceTree = "<group>"; };
 		3AD402D1616C6CA823B18670E463E201 /* CSArrayType+Foundation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CSArrayType+Foundation.swift"; path = "Sources/CryptoSwift/Foundation/CSArrayType+Foundation.swift"; sourceTree = "<group>"; };
-		3E10503C10C9575B45C606E08316880D /* ASKSecp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ASKSecp256k1.framework; path = ASKSecp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E10503C10C9575B45C606E08316880D /* ASKSecp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ASKSecp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBE83ECC73552D485B57C475923A09D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F198AABE2046790A545277CDDDE7B35 /* HMAC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HMAC.swift; path = Sources/CryptoSwift/HMAC.swift; sourceTree = "<group>"; };
 		3F46EFE96DF38A4136BA0DF2118E20B3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4547A951DFCF902144AD3A9E9920CC1A /* Chinese.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Chinese.swift; path = CKMnemonic/CKMnemonic/CKMnemonic/Language/Chinese.swift; sourceTree = "<group>"; };
 		4633D2D7EF332241562F903EC71AF998 /* Pods-AskCoin-HDTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AskCoin-HDTests-resources.sh"; sourceTree = "<group>"; };
-		4B3997E0BCD6F55C969D039A4E96D141 /* CryptoSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CryptoSwift.modulemap; sourceTree = "<group>"; };
+		4B3997E0BCD6F55C969D039A4E96D141 /* CryptoSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CryptoSwift.modulemap; sourceTree = "<group>"; };
 		4E24F1008A4EE778AA558558D9F4A5EE /* Cipher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cipher.swift; path = Sources/CryptoSwift/Cipher.swift; sourceTree = "<group>"; };
 		5061B435DA13D6E8F8E2B8E1ACD4DD84 /* Pods-AskCoin-HDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AskCoin-HDTests.release.xcconfig"; sourceTree = "<group>"; };
 		510E00F698263E8BD05A00543712DA03 /* Poly1305.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Poly1305.swift; path = Sources/CryptoSwift/Poly1305.swift; sourceTree = "<group>"; };
 		54DEDD5BE372B7741705228E384CE085 /* Pods-AskCoin-HDTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AskCoin-HDTests-dummy.m"; sourceTree = "<group>"; };
 		578D0BD56672DFF975F92B83AE7B5FE7 /* CTR.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CTR.swift; path = Sources/CryptoSwift/BlockMode/CTR.swift; sourceTree = "<group>"; };
 		584DDC45C91D6E8E0CC3DF36B7F8A22B /* SHA1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SHA1.swift; path = Sources/CryptoSwift/SHA1.swift; sourceTree = "<group>"; };
-		58ADE699E95EF3A16720DA0F564F14BE /* ASKSecp256k1.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ASKSecp256k1.modulemap; sourceTree = "<group>"; };
+		58ADE699E95EF3A16720DA0F564F14BE /* ASKSecp256k1.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ASKSecp256k1.modulemap; sourceTree = "<group>"; };
 		5D115C5416F20ACDE1238D2E5AEF60A7 /* ASKSecp256k1.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASKSecp256k1.xcconfig; sourceTree = "<group>"; };
 		5E188868E9312757B318F42802B0BC2F /* ASKSecp256k1-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASKSecp256k1-umbrella.h"; sourceTree = "<group>"; };
 		5EAED148279A93378930EC5525DB853D /* Blowfish.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Blowfish.swift; path = Sources/CryptoSwift/Blowfish.swift; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		8264B579A9BE9C87591F300D9670A0E5 /* CKSecp256k1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CKSecp256k1.m; path = ASKSecp256k1/ASKSecp256k1/CKSecp256k1/CKSecp256k1.m; sourceTree = "<group>"; };
 		82F1E5DD3B6A571A163118E24CD50404 /* Pods-AskCoin-HD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AskCoin-HD-umbrella.h"; sourceTree = "<group>"; };
 		8521BF80E4535EEA1728814187D18CA6 /* RandomAccessCryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RandomAccessCryptor.swift; path = Sources/CryptoSwift/RandomAccessCryptor.swift; sourceTree = "<group>"; };
-		859066CE1F3E10F9AF9079E02B2A9748 /* CKMnemonic.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CKMnemonic.modulemap; sourceTree = "<group>"; };
+		859066CE1F3E10F9AF9079E02B2A9748 /* CKMnemonic.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CKMnemonic.modulemap; sourceTree = "<group>"; };
 		85D47279D14D92AA7176C5B15EB490EB /* CKMnemonic-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CKMnemonic-prefix.pch"; sourceTree = "<group>"; };
 		86206CD805CD39A5C4B167DE0D747B53 /* ChaCha20+Foundation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ChaCha20+Foundation.swift"; path = "Sources/CryptoSwift/Foundation/ChaCha20+Foundation.swift"; sourceTree = "<group>"; };
 		86D901178B70CA9C46537B428315B195 /* Rabbit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Rabbit.swift; path = Sources/CryptoSwift/Rabbit.swift; sourceTree = "<group>"; };
@@ -199,9 +199,9 @@
 		89FC273AFE7F0F22064283FED6D0AEAC /* CBC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBC.swift; path = Sources/CryptoSwift/BlockMode/CBC.swift; sourceTree = "<group>"; };
 		8B86DBD4FE2C108F5740A2263F1638C8 /* Pods-AskCoin-HDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AskCoin-HDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		900A328EA52390B4BBCBB9EDE42D7577 /* Array+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Extension.swift"; path = "Sources/CryptoSwift/Array+Extension.swift"; sourceTree = "<group>"; };
-		9183B41A2B4F4C30EF9535590ECB1196 /* Pods_AskCoin_HDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AskCoin_HDTests.framework; path = "Pods-AskCoin-HDTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9183B41A2B4F4C30EF9535590ECB1196 /* Pods_AskCoin_HDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AskCoin_HDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		919DAD441CA29D740A8781EFA740E8F7 /* CKSecp256k1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CKSecp256k1.h; path = ASKSecp256k1/ASKSecp256k1/CKSecp256k1/CKSecp256k1.h; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		99F37B0F34E1CB711DD2F381D2EA7243 /* CryptoSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CryptoSwift.xcconfig; sourceTree = "<group>"; };
 		9AE35A3C64E5BA97A53FA62BAF82C259 /* BlockModeOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockModeOptions.swift; path = Sources/CryptoSwift/BlockMode/BlockModeOptions.swift; sourceTree = "<group>"; };
 		9C966B40F7D5AD997B79623485395FAF /* Pods-AskCoin-HD-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AskCoin-HD-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		D1F298894B07929A07124ACF85C4C900 /* UInt8+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UInt8+Extension.swift"; path = "Sources/CryptoSwift/UInt8+Extension.swift"; sourceTree = "<group>"; };
 		D359BFF38A6F60F692E4176E3DAD2003 /* secp256k1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = secp256k1.h; path = ASKSecp256k1/ASKSecp256k1/CKSecp256k1/secp256k1.framework/Versions/A/Headers/secp256k1.h; sourceTree = "<group>"; };
 		D6EAC319B501F3F8BBE778D3605268D5 /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D84F6DA6709FEDC487FDADA3E6B83D9A /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CryptoSwift.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D84F6DA6709FEDC487FDADA3E6B83D9A /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA245A23D13A4152DA9EAA63F8C37E1C /* CFB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CFB.swift; path = Sources/CryptoSwift/BlockMode/CFB.swift; sourceTree = "<group>"; };
 		DB1C1DF4309B3400B2455C9324C6C0BC /* CryptoSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CryptoSwift-umbrella.h"; sourceTree = "<group>"; };
 		E05DAC23EAC43F8A29A5AD6BCAF9D72A /* PBKDF2.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PBKDF2.swift; path = Sources/CryptoSwift/PKCS5/PBKDF2.swift; sourceTree = "<group>"; };
@@ -239,12 +239,12 @@
 		E45DC25B525ADBE50D81B10D9A36B915 /* Pods-AskCoin-HDTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AskCoin-HDTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		EA5E85A96372B809DD13C4C535E1FED1 /* String+MnemonicData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MnemonicData.swift"; path = "CKMnemonic/CKMnemonic/CKMnemonic/String+MnemonicData.swift"; sourceTree = "<group>"; };
 		EB37849E8F0E0CC59A654AC4DA893C66 /* Pods-AskCoin-HD-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AskCoin-HD-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F2D3B324920147618D2EE70AC1F9FDDB /* Pods-AskCoin-HDTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AskCoin-HDTests.modulemap"; sourceTree = "<group>"; };
+		F2D3B324920147618D2EE70AC1F9FDDB /* Pods-AskCoin-HDTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AskCoin-HDTests.modulemap"; sourceTree = "<group>"; };
 		F3B7BF515590CF2821D482B2E868626B /* ChaCha20.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChaCha20.swift; path = Sources/CryptoSwift/ChaCha20.swift; sourceTree = "<group>"; };
 		F43D4446902A95FDA89D5ABFD141C079 /* UInt64+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UInt64+Extension.swift"; path = "Sources/CryptoSwift/UInt64+Extension.swift"; sourceTree = "<group>"; };
 		F447664703C8A24C2F51D156D5BB364D /* CKMnemonic.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CKMnemonic.xcconfig; sourceTree = "<group>"; };
 		F5100900AF50274D93FD76CA4426FD8D /* NSData+HexString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+HexString.h"; path = "ASKSecp256k1/ASKSecp256k1/CKSecp256k1/NSData+HexString.h"; sourceTree = "<group>"; };
-		F56F5FDCC426571EC8A0421593B6EBD2 /* CKMnemonic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CKMnemonic.framework; path = CKMnemonic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F56F5FDCC426571EC8A0421593B6EBD2 /* CKMnemonic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CKMnemonic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7DE22750B146D10168428911572ACE7 /* Cryptors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cryptors.swift; path = Sources/CryptoSwift/Cryptors.swift; sourceTree = "<group>"; };
 		F8F36EBD6D5833A3E2243827BA6D1BB2 /* HMAC+Foundation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HMAC+Foundation.swift"; path = "Sources/CryptoSwift/Foundation/HMAC+Foundation.swift"; sourceTree = "<group>"; };
 		F9342F024A48FF9B3F97620228F71A48 /* PKCS7.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKCS7.swift; path = Sources/CryptoSwift/PKCS7.swift; sourceTree = "<group>"; };
@@ -378,7 +378,6 @@
 				873824C48FF2C04991C667DEA89CE7BD /* Frameworks */,
 				63F7F20019777BC87DC93DC1D7305EC9 /* Support Files */,
 			);
-			name = ASKSecp256k1;
 			path = ASKSecp256k1;
 			sourceTree = "<group>";
 		};
@@ -457,7 +456,6 @@
 				FBA11816CCED4BA8A13E812E07A2CC61 /* ZeroPadding.swift */,
 				A24544E846C89A6A43EE7DE74CE39B6A /* Support Files */,
 			);
-			name = CryptoSwift;
 			path = CryptoSwift;
 			sourceTree = "<group>";
 		};
@@ -539,7 +537,6 @@
 				EA5E85A96372B809DD13C4C535E1FED1 /* String+MnemonicData.swift */,
 				5760E7A3C5AB373CA7600DF11D6838B2 /* Support Files */,
 			);
-			name = CKMnemonic;
 			path = CKMnemonic;
 			sourceTree = "<group>";
 		};
@@ -866,6 +863,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/ASKSecp256k1/ASKSecp256k1-prefix.pch";
@@ -1172,6 +1170,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/ASKSecp256k1/ASKSecp256k1-prefix.pch";
