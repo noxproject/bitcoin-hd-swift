@@ -598,7 +598,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AskCoin-HD",
-					"$(PROJECT_DIR)/AskCoin-HD/include",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.askcoin.AskCoin-HD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -621,7 +620,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AskCoin-HD",
-					"$(PROJECT_DIR)/AskCoin-HD/include",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.askcoin.AskCoin-HD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
