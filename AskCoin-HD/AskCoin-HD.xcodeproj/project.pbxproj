@@ -16,8 +16,8 @@
 		CC5F9F451F41526E0063E7BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC5F9F441F41526E0063E7BD /* Assets.xcassets */; };
 		CC5F9F481F41526E0063E7BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC5F9F461F41526E0063E7BD /* LaunchScreen.storyboard */; };
 		CC5F9F531F41526E0063E7BD /* AskCoin_HDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5F9F521F41526E0063E7BD /* AskCoin_HDTests.swift */; };
-		CC872C0B1F417E0F003E26D8 /* ASKKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C0A1F417E0F003E26D8 /* ASKKeychain.swift */; };
-		CC872C4E1F442136003E26D8 /* ASKNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C4D1F442135003E26D8 /* ASKNetwork.swift */; };
+		CC872C0B1F417E0F003E26D8 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C0A1F417E0F003E26D8 /* Keychain.swift */; };
+		CC872C4E1F442136003E26D8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C4D1F442135003E26D8 /* Network.swift */; };
 		CC872C501F442453003E26D8 /* ASKHDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C4F1F442453003E26D8 /* ASKHDUtils.swift */; };
 		CC872C5F1F446EE0003E26D8 /* MG Basic Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C5A1F446EE0003E26D8 /* MG Basic Math.swift */; };
 		CC872C601F446EE0003E26D8 /* MG Benchmark Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C5B1F446EE0003E26D8 /* MG Benchmark Tools.swift */; };
@@ -25,7 +25,7 @@
 		CC872C621F446EE0003E26D8 /* SMP Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C5D1F446EE0003E26D8 /* SMP Core.swift */; };
 		CC872C631F446EE0003E26D8 /* SMP String Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C5E1F446EE0003E26D8 /* SMP String Module.swift */; };
 		CC872C651F4486A3003E26D8 /* ASKBase58.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872C641F4486A3003E26D8 /* ASKBase58.swift */; };
-		CC872E021F45AF07003E26D8 /* ASKKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872E011F45AF07003E26D8 /* ASKKey.swift */; };
+		CC872E021F45AF07003E26D8 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872E011F45AF07003E26D8 /* Key.swift */; };
 		CCE3C2701F4AE4AF009ECCEC /* RIPEMD+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C26D1F4AE4AF009ECCEC /* RIPEMD+Block.swift */; };
 		CCE3C2711F4AE4AF009ECCEC /* RIPEMD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C26E1F4AE4AF009ECCEC /* RIPEMD.swift */; };
 		CCE3C2721F4AE4AF009ECCEC /* UInt32+CircularShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C26F1F4AE4AF009ECCEC /* UInt32+CircularShift.swift */; };
@@ -73,8 +73,8 @@
 		CC5F9F4E1F41526E0063E7BD /* AskCoin-HDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AskCoin-HDTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC5F9F521F41526E0063E7BD /* AskCoin_HDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskCoin_HDTests.swift; sourceTree = "<group>"; };
 		CC5F9F541F41526E0063E7BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC872C0A1F417E0F003E26D8 /* ASKKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKKeychain.swift; sourceTree = "<group>"; };
-		CC872C4D1F442135003E26D8 /* ASKNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKNetwork.swift; sourceTree = "<group>"; };
+		CC872C0A1F417E0F003E26D8 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		CC872C4D1F442135003E26D8 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CC872C4F1F442453003E26D8 /* ASKHDUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKHDUtils.swift; sourceTree = "<group>"; };
 		CC872C5A1F446EE0003E26D8 /* MG Basic Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MG Basic Math.swift"; sourceTree = "<group>"; };
 		CC872C5B1F446EE0003E26D8 /* MG Benchmark Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MG Benchmark Tools.swift"; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		CC872C5D1F446EE0003E26D8 /* SMP Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SMP Core.swift"; sourceTree = "<group>"; };
 		CC872C5E1F446EE0003E26D8 /* SMP String Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SMP String Module.swift"; sourceTree = "<group>"; };
 		CC872C641F4486A3003E26D8 /* ASKBase58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKBase58.swift; sourceTree = "<group>"; };
-		CC872E011F45AF07003E26D8 /* ASKKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASKKey.swift; sourceTree = "<group>"; };
+		CC872E011F45AF07003E26D8 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		CCE3C26D1F4AE4AF009ECCEC /* RIPEMD+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RIPEMD+Block.swift"; sourceTree = "<group>"; };
 		CCE3C26E1F4AE4AF009ECCEC /* RIPEMD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIPEMD.swift; sourceTree = "<group>"; };
 		CCE3C26F1F4AE4AF009ECCEC /* UInt32+CircularShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt32+CircularShift.swift"; sourceTree = "<group>"; };
@@ -180,9 +180,9 @@
 			children = (
 				CCE3C26C1F4AE4AF009ECCEC /* RIPEMD */,
 				CC872C591F446EE0003E26D8 /* SwiftBigInteger */,
-				CC872C0A1F417E0F003E26D8 /* ASKKeychain.swift */,
-				CC872E011F45AF07003E26D8 /* ASKKey.swift */,
-				CC872C4D1F442135003E26D8 /* ASKNetwork.swift */,
+				CC872C0A1F417E0F003E26D8 /* Keychain.swift */,
+				CC872E011F45AF07003E26D8 /* Key.swift */,
+				CC872C4D1F442135003E26D8 /* Network.swift */,
 				CC872C4F1F442453003E26D8 /* ASKHDUtils.swift */,
 				CC872C641F4486A3003E26D8 /* ASKBase58.swift */,
 			);
@@ -436,15 +436,15 @@
 				CC5F9F401F41526E0063E7BD /* DetailViewController.swift in Sources */,
 				CC872C651F4486A3003E26D8 /* ASKBase58.swift in Sources */,
 				CC872C5F1F446EE0003E26D8 /* MG Basic Math.swift in Sources */,
-				CC872C4E1F442136003E26D8 /* ASKNetwork.swift in Sources */,
+				CC872C4E1F442136003E26D8 /* Network.swift in Sources */,
 				CC872C601F446EE0003E26D8 /* MG Benchmark Tools.swift in Sources */,
 				CC872C621F446EE0003E26D8 /* SMP Core.swift in Sources */,
 				CC5F9F3E1F41526E0063E7BD /* MasterViewController.swift in Sources */,
 				CC872C501F442453003E26D8 /* ASKHDUtils.swift in Sources */,
 				CCE3C2721F4AE4AF009ECCEC /* UInt32+CircularShift.swift in Sources */,
 				CC5F9F3C1F41526E0063E7BD /* AppDelegate.swift in Sources */,
-				CC872C0B1F417E0F003E26D8 /* ASKKeychain.swift in Sources */,
-				CC872E021F45AF07003E26D8 /* ASKKey.swift in Sources */,
+				CC872C0B1F417E0F003E26D8 /* Keychain.swift in Sources */,
+				CC872E021F45AF07003E26D8 /* Key.swift in Sources */,
 				CC872C631F446EE0003E26D8 /* SMP String Module.swift in Sources */,
 				CCE3C2711F4AE4AF009ECCEC /* RIPEMD.swift in Sources */,
 				CCE3C2701F4AE4AF009ECCEC /* RIPEMD+Block.swift in Sources */,

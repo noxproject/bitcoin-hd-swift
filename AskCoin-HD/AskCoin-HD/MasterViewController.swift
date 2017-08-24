@@ -52,7 +52,7 @@ class MasterViewController: UITableViewController {
 		let seed = "000102030405060708090a0b0c0d0e0f"
 		print(seed)
 		do {
-			let keychain = try ASKKeychain(seedString: seed)
+			let keychain = try Keychain(seedString: seed)
 			print(keychain.extendedPrivateKey)
 			print(keychain.extendedPublicKey)
 			

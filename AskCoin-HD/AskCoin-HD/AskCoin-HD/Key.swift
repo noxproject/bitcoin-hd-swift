@@ -18,7 +18,7 @@ enum ASKKeyVerifyResult: Int, Error {
 
 // TODO: - BTC sign and verify
 
-class ASKKey: NSObject {
+class Key: NSObject {
 	static func generatePublicKey(with privateKey: Data, compression: Bool = true) -> Data {
 		var data = Data()
 		if let t = CKSecp256k1.generatePublicKey(withPrivateKey: privateKey, compression: compression) {

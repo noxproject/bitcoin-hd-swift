@@ -19,7 +19,7 @@ let BTCMasterKeychainPath = "m"
 let BTCKeychainHardenedSymbol = "'"
 let BTCKeychainPathSeparator = "/"
 
-class ASKKeychain: NSObject {
+class Keychain: NSObject {
 	
 	enum KeyDerivationError: Error {
 		case indexInvalid
@@ -36,7 +36,7 @@ class ASKKeychain: NSObject {
 	
 	fileprivate var isMasterKey = false
 	
-	var network = ASKNetwork()
+	var network = Network()
 	var depth: UInt8 = 0
 	var hardened = false
 	var index: UInt32 = 0
@@ -82,7 +82,7 @@ class ASKKeychain: NSObject {
 		guard self.privateKey != nil else {
 			return nil
 		}
-		return ASKKey.generatePublicKey(with: self.privateKey!)
+		return Key.generatePublicKey(with: self.privateKey!)
 	}()
 	
 	// MARK: - Extended private key
@@ -158,7 +158,7 @@ class ASKKeychain: NSObject {
 		return toReturn
 	}
 	
-	func derivedKeychain(at path: String) throws -> ASKKeychain {
+	func derivedKeychain(at path: String) throws -> Keychain {
 		
 		if path == BTCMasterKeychainPath || path == BTCKeychainPathSeparator || path == "" {
 			return self
@@ -188,7 +188,7 @@ class ASKKeychain: NSObject {
 		return kc
 	}
 	
-	func derivedKeychain(at index: UInt32, hardened: Bool = true) throws -> ASKKeychain {
+	func derivedKeychain(at index: UInt32, hardened: Bool = true) throws -> Keychain {
 		
 		let edge: UInt32 = 0x80000000
 		
@@ -228,7 +228,7 @@ class ASKKeychain: NSObject {
 		let factor = BInt(data: Data(digestArray[0..<32]))
 		let curveOrder = BInt(hex: "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141")
 		
-		let derivedKeychain = ASKKeychain(hmac: digestArray)
+		let derivedKeychain = Keychain(hmac: digestArray)
 		
 		let pkNum = BInt(data: Data(prvKey))
 		
@@ -246,7 +246,7 @@ class ASKKeychain: NSObject {
 }
 
 // MARK: - BIP44
-extension ASKKeychain {
+extension Keychain {
 	
 	func checkMasterKey() throws {
 		guard isMasterKey else {
@@ -254,11 +254,11 @@ extension ASKKeychain {
 		}
 	}
 	
-	func bitcoinMainnetKeychain() throws -> ASKKeychain {
+	func bitcoinMainnetKeychain() throws -> Keychain {
 		try checkMasterKey()
 		return try derivedKeychain(at: "44'/0'")
 	}
-	func bitcoinTestnetKeychain() throws -> ASKKeychain {
+	func bitcoinTestnetKeychain() throws -> Keychain {
 		try checkMasterKey()
 		return try derivedKeychain(at: "44'/1'")
 	}
