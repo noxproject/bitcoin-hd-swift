@@ -57,7 +57,7 @@ class AskCoin_HDTests: XCTestCase {
 		for vector in testVectors {
 			let seed = vector.hexString
 			do {
-				let keychain = try ASKKeychain(seedString: seed!)
+				let keychain = try Keychain(seedString: seed!)
 				for t in vector.paths {
 					let kc = try keychain.derivedKeychain(at: t.path!)
 					XCTAssertEqual(t.extPrv, kc.extendedPrivateKey)

@@ -8,6 +8,7 @@
 
 import UIKit
 import CryptoSwift
+import ASKSecp256k1
 
 let BTCKeychainMainnetPrivateVersion: UInt32 = 0x0488ADE4
 let BTCKeychainMainnetPublicVersion: UInt32 = 0x0488B21E
@@ -15,7 +16,11 @@ let BTCKeychainMainnetPublicVersion: UInt32 = 0x0488B21E
 let BTCKeychainTestnetPrivateVersion: UInt32 = 0x04358394
 let BTCKeychainTestnetPublicVersion: UInt32 = 0x043587CF
 
-class ASKKeychain: NSObject {
+let BTCMasterKeychainPath = "m"
+let BTCKeychainHardenedSymbol = "'"
+let BTCKeychainPathSeparator = "/"
+
+class Keychain: NSObject {
 	
 	enum KeyDerivationError: Error {
 		case indexInvalid
@@ -23,6 +28,7 @@ class ASKKeychain: NSObject {
 		case privateKeyNil
 		case publicKeyNil
 		case chainCodeNil
+		case notMasterKey
 	}
 	
 	private var privateKey: Data?
@@ -31,7 +37,7 @@ class ASKKeychain: NSObject {
 	
 	fileprivate var isMasterKey = false
 	
-	var network = ASKNetwork()
+	var network = Network()
 	var depth: UInt8 = 0
 	var hardened = false
 	var index: UInt32 = 0
@@ -59,7 +65,7 @@ class ASKKeychain: NSObject {
 	
 	lazy var identifier: Data? = {
 		if let pubKey = self.publicKey {
-			return pubKey.BTCHash160()
+			return pubKey.ask_BTCHash160()
 		}
 		return nil
 	}()
@@ -74,15 +80,15 @@ class ASKKeychain: NSObject {
 	}()
 	
 	private lazy var publicKey: Data? = {
-		guard self.privateKey != nil else {
+		guard let prvKey = self.privateKey else {
 			return nil
 		}
-		return ASKKey.generatePublicKey(with: self.privateKey!)
+		return CKSecp256k1.generatePublicKey(withPrivateKey: prvKey, compression: true)
 	}()
 	
 	// MARK: - Extended private key
 	lazy var extendedPrivateKey: String = {
-		self.extendedPrivateKeyData.base58Check()
+		self.extendedPrivateKeyData.ask_base58Check()
 	}()
 	
 	lazy var extendedPrivateKeyData: Data = {
@@ -95,7 +101,7 @@ class ASKKeychain: NSObject {
 		let version = self.network.isMainNet ? BTCKeychainMainnetPrivateVersion : BTCKeychainTestnetPrivateVersion
 		toReturn += self.extendedKeyPrefix(with: version)
 		
-		toReturn += UInt8(0).hexToData()
+		toReturn += UInt8(0).ask_hexToData()
 		
 		if let prikey = self.privateKey {
 			toReturn += prikey
@@ -106,7 +112,7 @@ class ASKKeychain: NSObject {
 	
 	// MARK: - Extended public key
 	lazy var extendedPublicKey: String = {
-		self.extendedPublicKeyData.base58Check()
+		self.extendedPublicKeyData.ask_base58Check()
 	}()
 	
 	lazy var extendedPublicKeyData: Data = {
@@ -129,17 +135,17 @@ class ASKKeychain: NSObject {
 	func extendedKeyPrefix(with version: UInt32) -> Data {
 		var toReturn = Data()
 		
-		let versionData = version.hexToData()
+		let versionData = version.ask_hexToData()
 		toReturn += versionData
 		
-		let depthData = depth.hexToData()
+		let depthData = depth.ask_hexToData()
 		toReturn += depthData
 		
-		let parentFPData = parentFingerprint.hexToData()
+		let parentFPData = parentFingerprint.ask_hexToData()
 		toReturn += parentFPData
 		
 		let childIndex = hardened ? (0x80000000 | index) : index
-		let childIndexData = childIndex.hexToData()
+		let childIndexData = childIndex.ask_hexToData()
 		toReturn += childIndexData
 		
 		if let cCode = chainCode {
@@ -153,21 +159,23 @@ class ASKKeychain: NSObject {
 		return toReturn
 	}
 	
-	func derivedKeychain(at path: String) throws -> ASKKeychain {
+	func derivedKeychain(at path: String) throws -> Keychain {
 		
-		if path == "m" || path == "/" || path == "" {
+		if path == BTCMasterKeychainPath || path == BTCKeychainPathSeparator || path == "" {
 			return self
 		}
 		
-		var paths = path.components(separatedBy: "/")
-		paths.removeFirst()
+		var paths = path.components(separatedBy: BTCKeychainPathSeparator)
+		if path.hasPrefix(BTCMasterKeychainPath) {
+			paths.removeFirst()
+		}
 		
 		var kc = self
 		
 		for indexString in paths {
 			var isHardened = false
 			var temp = indexString
-			if indexString.hasSuffix("'") {
+			if indexString.hasSuffix(BTCKeychainHardenedSymbol) {
 				isHardened = true
 				temp = temp.substring(to: temp.index(temp.endIndex, offsetBy: -1))
 			}
@@ -181,7 +189,7 @@ class ASKKeychain: NSObject {
 		return kc
 	}
 	
-	func derivedKeychain(at index: UInt32, hardened: Bool = true) throws -> ASKKeychain {
+	func derivedKeychain(at index: UInt32, hardened: Bool = true) throws -> Keychain {
 		
 		let edge: UInt32 = 0x80000000
 		
@@ -205,7 +213,7 @@ class ASKKeychain: NSObject {
 		
 		if hardened {
 			let padding: UInt8 = 0
-			data += padding.hexToData()
+			data += padding.ask_hexToData()
 			data += prvKey
 		}
 		else
@@ -214,14 +222,14 @@ class ASKKeychain: NSObject {
 		}
 		
 		let indexBE = hardened ? (edge + index) : index
-		data += indexBE.hexToData()
+		data += indexBE.ask_hexToData()
 		
 		let digestArray = try HMAC(key: chCode.bytes, variant: .sha512).authenticate(data.bytes)
 		
 		let factor = BInt(data: Data(digestArray[0..<32]))
 		let curveOrder = BInt(hex: "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141")
 		
-		let derivedKeychain = ASKKeychain(hmac: digestArray)
+		let derivedKeychain = Keychain(hmac: digestArray)
 		
 		let pkNum = BInt(data: Data(prvKey))
 		
@@ -237,3 +245,23 @@ class ASKKeychain: NSObject {
 	}
 	
 }
+
+// MARK: - BIP44
+extension Keychain {
+	
+	func checkMasterKey() throws {
+		guard isMasterKey else {
+			throw KeyDerivationError.notMasterKey
+		}
+	}
+	
+	func bitcoinMainnetKeychain() throws -> Keychain {
+		try checkMasterKey()
+		return try derivedKeychain(at: "44'/0'")
+	}
+	func bitcoinTestnetKeychain() throws -> Keychain {
+		try checkMasterKey()
+		return try derivedKeychain(at: "44'/1'")
+	}
+}
+

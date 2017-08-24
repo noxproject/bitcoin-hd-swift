@@ -8,14 +8,14 @@
 
 import UIKit
 
-enum ASKNetworkType {
+enum NetworkType {
 	case main
 	case test
 }
 
-struct ASKNetwork {
+struct Network {
 	
-	var networkType: ASKNetworkType = .main
+	var networkType: NetworkType = .main
 	
 	var isMainNet: Bool { get { return networkType == .main } }
 	var isTestNet: Bool { get { return networkType == .test } }

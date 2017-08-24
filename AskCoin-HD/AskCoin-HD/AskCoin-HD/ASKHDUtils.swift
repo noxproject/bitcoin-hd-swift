@@ -9,11 +9,11 @@
 import Foundation
 
 protocol HexToData {
-	func hexToData() -> Data
+	func ask_hexToData() -> Data
 }
 
 extension UInt32: HexToData {
-	func hexToData() -> Data {
+	func ask_hexToData() -> Data {
 		var v = self.byteSwapped
 		let data = Data(bytes: &v, count: MemoryLayout<UInt32>.size)
 		return data
@@ -21,7 +21,7 @@ extension UInt32: HexToData {
 }
 
 extension UInt8: HexToData {
-	func hexToData() -> Data {
+	func ask_hexToData() -> Data {
 		var v = self
 		let data = Data(bytes: &v, count: MemoryLayout<UInt8>.size)
 		return data
@@ -36,7 +36,7 @@ extension String {
 	///
 	/// - returns: Data represented by this hexadecimal string.
 	
-	func hexadecimal() -> Data? {
+	func ask_hexadecimal() -> Data? {
 		var data = Data(capacity: characters.count / 2)
 		
 		let regex = try! NSRegularExpression(pattern: "[0-9a-f]{1,2}", options: .caseInsensitive)
@@ -59,26 +59,26 @@ extension Data {
 	///
 	/// - returns: `String` representation of this `Data` object.
 	
-	func hexadecimal() -> String {
+	func ask_hexadecimal() -> String {
 		return map { String(format: "%02x", $0) }
 			.joined(separator: "")
 	}
 }
 
 extension Data {
-	func BTCHash256() -> Data {
+	func ask_BTCHash256() -> Data {
 		return self.sha256().sha256()
 	}
-	func BTCHash160() -> Data {
+	func ask_BTCHash160() -> Data {
 		return RIPEMD.digest(sha256())
 	}
-	func BTCHash160String() -> String {
-		return BTCHash160().toHexString()
+	func ask_BTCHash160String() -> String {
+		return ask_BTCHash160().toHexString()
 	}
 	func ck_reversedData() -> Data {
 		return Data(reversed())
 	}
-	func base58Check() -> String {
+	func ask_base58Check() -> String {
 		return ASKBase58.encode(data: self)
 	}
 	static func dataFromHexString(hexString: String) -> Data {
