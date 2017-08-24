@@ -8,6 +8,7 @@
 
 import UIKit
 import CryptoSwift
+import ASKSecp256k1
 
 let BTCKeychainMainnetPrivateVersion: UInt32 = 0x0488ADE4
 let BTCKeychainMainnetPublicVersion: UInt32 = 0x0488B21E
@@ -79,10 +80,10 @@ class Keychain: NSObject {
 	}()
 	
 	private lazy var publicKey: Data? = {
-		guard self.privateKey != nil else {
+		guard let prvKey = self.privateKey else {
 			return nil
 		}
-		return Key.generatePublicKey(with: self.privateKey!)
+		return CKSecp256k1.generatePublicKey(withPrivateKey: prvKey, compression: true)
 	}()
 	
 	// MARK: - Extended private key
