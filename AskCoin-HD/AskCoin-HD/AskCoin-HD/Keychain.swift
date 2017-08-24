@@ -21,7 +21,7 @@ let BTCMasterKeychainPath = "m"
 let BTCKeychainHardenedSymbol = "'"
 let BTCKeychainPathSeparator = "/"
 
-class Keychain: NSObject {
+public class Keychain: NSObject {
 	
 	enum KeyDerivationError: Error {
 		case indexInvalid
@@ -33,7 +33,7 @@ class Keychain: NSObject {
 	}
 	
 	private var privateKey: Data?
-//	private var publicKey: Data?
+	//	private var publicKey: Data?
 	private var chainCode: Data?
 	
 	fileprivate var isMasterKey = false
@@ -47,7 +47,7 @@ class Keychain: NSObject {
 		
 	}
 	
-	convenience init(seedString: String) throws {
+	public convenience init(seedString: String) throws {
 		let seed = seedString.ck_mnemonicData()
 		let seedBytes = seed.bytes
 		do {
@@ -64,16 +64,16 @@ class Keychain: NSObject {
 		chainCode = Data(hmac[32..<64])
 	}
 	
-	lazy var identifier: Data? = {
+	public lazy var identifier: Data? = {
 		if let pubKey = self.publicKey {
 			return pubKey.ask_BTCHash160()
 		}
 		return nil
 	}()
 	
-	var parentFingerprint: UInt32 = 0
+	public var parentFingerprint: UInt32 = 0
 	
-	lazy var fingerprint: UInt32 = {
+	public lazy var fingerprint: UInt32 = {
 		if let id = self.identifier {
 			return UInt32(bytes: id.bytes[0..<4])
 		}
@@ -88,11 +88,11 @@ class Keychain: NSObject {
 	}()
 	
 	// MARK: - Extended private key
-	lazy var extendedPrivateKey: String = {
+	public lazy var extendedPrivateKey: String = {
 		self.extendedPrivateKeyData.ask_base58Check()
 	}()
 	
-	lazy var extendedPrivateKeyData: Data = {
+	public lazy var extendedPrivateKeyData: Data = {
 		guard self.privateKey != nil else {
 			return Data()
 		}
@@ -112,11 +112,11 @@ class Keychain: NSObject {
 	}()
 	
 	// MARK: - Extended public key
-	lazy var extendedPublicKey: String = {
+	public lazy var extendedPublicKey: String = {
 		self.extendedPublicKeyData.ask_base58Check()
 	}()
 	
-	lazy var extendedPublicKeyData: Data = {
+	public lazy var extendedPublicKeyData: Data = {
 		guard self.publicKey != nil else {
 			return Data()
 		}
@@ -160,7 +160,7 @@ class Keychain: NSObject {
 		return toReturn
 	}
 	
-	func derivedKeychain(at path: String) throws -> Keychain {
+	public func derivedKeychain(at path: String) throws -> Keychain {
 		
 		if path == BTCMasterKeychainPath || path == BTCKeychainPathSeparator || path == "" {
 			return self
@@ -190,7 +190,7 @@ class Keychain: NSObject {
 		return kc
 	}
 	
-	func derivedKeychain(at index: UInt32, hardened: Bool = true) throws -> Keychain {
+	public func derivedKeychain(at index: UInt32, hardened: Bool = true) throws -> Keychain {
 		
 		let edge: UInt32 = 0x80000000
 		
@@ -250,17 +250,17 @@ class Keychain: NSObject {
 // MARK: - BIP44
 extension Keychain {
 	
-	func checkMasterKey() throws {
+	public func checkMasterKey() throws {
 		guard isMasterKey else {
 			throw KeyDerivationError.notMasterKey
 		}
 	}
 	
-	func bitcoinMainnetKeychain() throws -> Keychain {
+	public func bitcoinMainnetKeychain() throws -> Keychain {
 		try checkMasterKey()
 		return try derivedKeychain(at: "44'/0'")
 	}
-	func bitcoinTestnetKeychain() throws -> Keychain {
+	public func bitcoinTestnetKeychain() throws -> Keychain {
 		try checkMasterKey()
 		return try derivedKeychain(at: "44'/1'")
 	}
