@@ -2,7 +2,7 @@ PODS:
   - ASKSecp256k1 (0.0.4)
   - CKMnemonic (0.1.5):
     - CryptoSwift
-  - CryptoSwift (0.6.9)
+  - CryptoSwift (0.7.2)
 
 DEPENDENCIES:
   - ASKSecp256k1
@@ -12,7 +12,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ASKSecp256k1: e7e03e889c59cb3e7d62819700b3b9ecfc8caf19
   CKMnemonic: a86934c29ff10d63dc54a07082b1b2ad5d244c2f
-  CryptoSwift: a22f6ba238e9ce4d26ee7bf45b9ed82e7122d4a0
+  CryptoSwift: cd2158be2bf639aabc63ec804707c7137c90157c
 
 PODFILE CHECKSUM: 583860438fb6a7b9438edf08bd68b25bbdd777a8
 

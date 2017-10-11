@@ -39,7 +39,7 @@ class MasterViewController: UITableViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
-	func insertNewObject(_ sender: Any) {
+	@objc func insertNewObject(_ sender: Any) {
 		objects.insert(NSDate(), at: 0)
 		let indexPath = IndexPath(row: 0, section: 0)
 		tableView.insertRows(at: [indexPath], with: .automatic)
@@ -47,22 +47,22 @@ class MasterViewController: UITableViewController {
 	
 	// MARK: - Key test
 	func testKeys() {
-		let mnemonic = "弓 帽 次 剂 测 妈 凭 吏 涨 火 搞 装"
-		print(mnemonic)
-		let seed = "000102030405060708090a0b0c0d0e0f"
-		print(seed)
-		do {
-			let keychain = try Keychain(seedString: seed)
-			print(keychain.extendedPrivateKey)
-			print(keychain.extendedPublicKey)
-			
-			let childKeychain = try keychain.bitcoinMainnetKeychain()
-			print(childKeychain.extendedPrivateKey)
-			print(childKeychain.extendedPublicKey)
-			
-		} catch {
-			print(error)
-		}
+//		let mnemonic = "弓 帽 次 剂 测 妈 凭 吏 涨 火 搞 装"
+//		print(mnemonic)
+//		let seed = "000102030405060708090a0b0c0d0e0f"
+//		print(seed)
+//		do {
+//			let keychain = try Keychain(seedString: seed)
+//			print(keychain.extendedPrivateKey)
+//			print(keychain.extendedPublicKey)
+//			
+//			let childKeychain = try keychain.bitcoinMainnetKeychain()
+//			print(childKeychain.extendedPrivateKey)
+//			print(childKeychain.extendedPublicKey)
+//			
+//		} catch {
+//			print(error)
+//		}
 //		do {
 //			let language: CKMnemonicLanguageType = .chinese
 //			let mnemonic = try CKMnemonic.generateMnemonic(strength: 128, language: language)
